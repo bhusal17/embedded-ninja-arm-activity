@@ -1,12 +1,12 @@
 #include "gpio_interface.h"
 
 
-unsigned char ch[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
 
 
-void display_number(int number){
-//your code here
-}
+
+	void display_number(int number){
+		//your code here
+	}
 
  int main(void){
 	//TODO Connect the pin of 7 segment display to port A as shown in the whiteboard.(a->0,b->1_
@@ -25,7 +25,7 @@ void display_number(int number){
    while (1)
    {
 	   	  //Displaying number 1 using write_gpio_pin function for common anode configuration
-	      write_gpio_pin(GPIO_PORT_A,0,1);
+	     	  write_gpio_pin(GPIO_PORT_A,0,1);
 	 	  write_gpio_pin(GPIO_PORT_A,1,0);
 	 	  write_gpio_pin(GPIO_PORT_A,2,0);
 	 	  write_gpio_pin(GPIO_PORT_A,3,1);
@@ -61,7 +61,9 @@ void display_number(int number){
 	 	   * delay(500);
 	 	   * number++;
 	 	   */
-	 	  //uncomment above code
+	 	  //uncomment above code and flash it 
+
+
 	 	  //TODO Modify your code so that number switches from 9 to 0;
 	 	  //hint:use if condition
 
