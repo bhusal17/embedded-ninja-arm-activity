@@ -1,11 +1,14 @@
 #include "gpio_interface.h"
 
+#define seg_port GPIO_PORT_A
 
-
+uint8_t cc_char[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
 
 
 	void display_number(int number){
 		//your code here
+		write_gpio_port(seg_port,cc_char[number])
+
 	}
 
  int main(void){
@@ -24,16 +27,16 @@
 
    while (1)
    {
-	   	  //Displaying number 1 using write_gpio_pin function for common anode configuration
-	     	  write_gpio_pin(GPIO_PORT_A,0,1);
-	 	  write_gpio_pin(GPIO_PORT_A,1,0);
-	 	  write_gpio_pin(GPIO_PORT_A,2,0);
-	 	  write_gpio_pin(GPIO_PORT_A,3,1);
-	 	  write_gpio_pin(GPIO_PORT_A,4,1);
-	 	  write_gpio_pin(GPIO_PORT_A,5,1);
-	 	  write_gpio_pin(GPIO_PORT_A,6,1);
-	 	  write_gpio_pin(GPIO_PORT_A,7,1);
-
+//	   	  //Displaying number 1 using write_gpio_pin function for common anode configuration
+//	     write_gpio_pin(GPIO_PORT_A,0,1);
+//	 	  write_gpio_pin(GPIO_PORT_A,1,0);
+//	 	  write_gpio_pin(GPIO_PORT_A,2,0);
+//	 	  write_gpio_pin(GPIO_PORT_A,3,1);
+//	 	  write_gpio_pin(GPIO_PORT_A,4,1);
+//	 	  write_gpio_pin(GPIO_PORT_A,5,1);
+//	 	  write_gpio_pin(GPIO_PORT_A,6,1);
+//	 	  write_gpio_pin(GPIO_PORT_A,7,1);
+//
 	 	  //****************************************************************************************
 	 	  //TODO display any number between 0-9 using write_gpio_pin(portname,pinnumber,value) as above;
 	 	  //your code here
@@ -53,6 +56,12 @@
 	 	  //TODO Complete  the implementation for the function "void display_number(int number)" and call the function
 	 	  //hint:display_number(1);
 	 	  //*****************************************************************************************
+
+for(uint_8 i=0; i<10; i++){
+	   display_number(i);
+	   delay_ms(50);
+
+}
 
 
 	 	  /*

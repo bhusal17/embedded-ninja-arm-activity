@@ -1,4 +1,4 @@
-/*
+r/*
  * gpio_interface.c
  *
  *  Created on: Jun 13, 2018
@@ -30,12 +30,12 @@ void configure_gpio_port(GPIORegister_structure *GPIOX, uint32_t lower_pins_mode
 void configure_gpio_pin(GPIORegister_structure *GPIOX, uint8_t pin_number, uint8_t pin_mode){
 
 	if(pin_number < 8){
-		GPIOX->ConfigRegLow = ( GPIOX->ConfigRegLow & ( ~ ( 1<< (pin_number*4) ) ) ) | (pin_mode << (pin_number*4) );
+		GPIOX->ConfigRegLow = ( GPIOX->ConfigRegLow & ( ~ ( 0xf<< (pin_number*4) ) ) ) | (pin_mode << (pin_number*4) );
 
 	}
 	else{
 		pin_number = pin_number - 8;
-		GPIOX->ConfigRegHigh = ( GPIOX->ConfigRegHigh & ( ~ ( 1<< (pin_number*4) ) ) ) | (pin_mode << (pin_number*4) );
+		GPIOX->ConfigRegHigh = ( GPIOX->ConfigRegHigh & ( ~ ( 0xf<< (pin_number*4) ) ) ) | (pin_mode << (pin_number*4) );
 	}
 }
 
